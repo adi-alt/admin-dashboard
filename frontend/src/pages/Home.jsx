@@ -17,7 +17,7 @@ const Home = () => {
   const updateHandler = async (id) => {
     try {
       const { data } = await axios.put(
-        `${server}/tasks/${id}`,
+        `${server}/task/${id}`,
         {},
         {
           withCredentials: true,
@@ -32,7 +32,7 @@ const Home = () => {
   };
   const deleteHandler = async (id) => {
     try {
-      const { data } = await axios.delete(`${server}/tasks/${id}`, {
+      const { data } = await axios.delete(`${server}/task/${id}`, {
         withCredentials: true,
       });
 
@@ -48,7 +48,7 @@ const Home = () => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        `${server}/tasks/new`,
+        `${server}/task/new`,
         {
           title,
           description,
@@ -74,7 +74,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`${server}/tasks/my`, {
+      .get(`${server}/task/my`, {
         withCredentials: true,
       })
       .then((res) => {
